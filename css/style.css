@@ -94,3 +94,28 @@ header ul ~ a {
     font-weight: 700;
     color: white;
 }
+
+/* ---- MAIN ---- */
+main {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: inline-block;
+
+    background-color: #000ed9;
+    background-image: url("../img/background.png");
+}
+
+.mainWrapper {
+    width: 90%;
+    display: inline-block;
+    margin: 0 auto;
+
+    background-color: lightskyblue;
+    border-left: 4px darkblue groove;
+    border-right: 4px darkblue groove;
+}
+
+.mainWrapper *:first-child {
+    margin-top: var(--header-height);
+}
