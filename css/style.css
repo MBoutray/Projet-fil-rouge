@@ -74,6 +74,7 @@ header ul ~ a {
 
 .logoAndName {
     margin-right: auto; /* justify at the start */
+    margin-left: 10px;
 
     display: flex;
         flex-flow: row nowrap;
