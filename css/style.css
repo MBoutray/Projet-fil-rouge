@@ -121,3 +121,25 @@ main {
 .mainWrapper *:first-child {
     margin-top: var(--header-height);
 }
+
+.Bet {
+    width: 40%;
+    height: 250px;
+
+    background-color: #8080803f;
+    border-radius: 15px;
+    border: 2px darkslategrey groove;
+}
+
+.bookmark {
+    height: 35px;
+    width: auto;
+}
+
+.bookmark .fill {
+    fill: transparent;
+}
+
+.bookmark .stroke {
+    fill: black;
+}
