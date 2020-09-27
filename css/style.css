@@ -110,8 +110,9 @@ main {
     display: inline-block;
     text-align: center;
 
-    background-color: #000ed9;
+    background-color: #007400;
     background-image: url("../img/background.png");
+    background-attachment: fixed;
 }
 
 .mainWrapper {
@@ -119,9 +120,10 @@ main {
     display: inline-block;
     text-align: left;
 
-    background-color: lightskyblue;
-    border-left: 4px darkblue groove;
-    border-right: 4px darkblue groove;
+    background-color: whitesmoke;
+    border-left: 10px hsla(0, 0%, 100%, .5) solid;
+    border-right: 10px hsla(0, 0%, 100%, .5) solid;
+    background-clip: padding-box;
 }
 
 .mainWrapper *:first-child {
