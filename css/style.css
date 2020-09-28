@@ -228,34 +228,43 @@ h2 {
     margin-right: 10px;
 }
 
-    background-color: whitesmoke;
-    border-left: 10px hsla(0, 0%, 100%, .5) solid;
-    border-right: 10px hsla(0, 0%, 100%, .5) solid;
-    background-clip: padding-box;
+/* ---- FOOTER ---- */
+footer {
+    background-color: #000e00;
+    width: 100%;
+    height: 75px;
 }
 
-.mainWrapper *:first-child {
-    margin-top: var(--header-height);
+footer nav {
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
 }
 
-.Bet {
-    width: 40%;
-    height: 250px;
+footer ul {
+    height: 100%;
+    width: 100%;
 
-    background-color: #8080803f;
-    border-radius: 15px;
-    border: 2px darkslategrey groove;
+    display: flex;
+        flex-flow: nowrap row;
+        justify-content: space-between;
+        align-items: center;
 }
 
-.bookmark {
-    height: 35px;
-    width: auto;
+footer li {
+    list-style: none;
+    display: flex;
+        justify-content: center;
+        align-items: center;
 }
 
-.bookmark .fill {
-    fill: transparent;
+footer a {
+    padding: 15px;
+    text-align: center;
+    vertical-align: center;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
 }
 
-.bookmark .stroke {
-    fill: black;
-}
