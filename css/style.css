@@ -119,6 +119,113 @@ main {
     width: 90%;
     display: inline-block;
     text-align: left;
+    padding: 10px 30px 15px 30px;
+
+    background-color: whitesmoke;
+    border-left: 10px hsla(0, 0%, 100%, .5) solid;
+    border-right: 10px hsla(0, 0%, 100%, .5) solid;
+    background-clip: padding-box;
+}
+
+h1 {
+    margin-top: var(--header-height);
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+/* Sections */
+section {
+    display: flex;
+        flex-flow: wrap column;
+        justify-content: flex-start;
+        align-items: flex-start;
+}
+
+h2 {
+    text-decoration: underline;
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+.articleWrapper {
+    width: 100%;
+
+    display: flex;
+        flex-flow: nowrap row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+}
+
+.Bet {
+    width: 47%;
+    height: 250px;
+    position: relative;
+    padding: 10px;
+
+    display: flex;
+        flex-flow: nowrap column;
+        justify-content: space-between;
+        align-items: flex-start;
+
+    background-color: #8080803f;
+    border-radius: 15px;
+    border: 2px darkslategrey groove;
+}
+
+.FollowCounter {
+    position: absolute;
+        top: 10px;
+        right: 10px;
+    
+    display: flex;
+        flex-flow: nowrap row;
+        justify-content: flex-end;
+        align-items: center;
+}
+
+.bookmark {
+    height: 35px;
+    width: auto;
+    margin-right: 5px;
+}
+
+.bookmark .fill {
+    fill: transparent;
+}
+
+.bookmark .stroke {
+    fill: black;
+}
+
+.answerBtnWrapper {
+    height: 80%;
+    width: 100%;
+
+    display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+}
+
+.AnswerBtn {
+    height: 100%;
+    width: 48%;
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+    background-color: rgba(0, 128, 0, 0.2);
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.SeeMoreBtn {
+    align-self: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
 
     background-color: whitesmoke;
     border-left: 10px hsla(0, 0%, 100%, .5) solid;
