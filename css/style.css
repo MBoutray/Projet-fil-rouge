@@ -228,6 +228,50 @@ h2 {
     margin-right: 10px;
 }
 
+table, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+table tr:nth-of-type(2) {
+    background-color: rgb(255, 215, 0, 0.4);
+}
+
+table tr:nth-of-type(3) {
+    background-color: rgb(169, 169, 169, 0.4);
+}
+
+table tr:nth-of-type(4) {
+    background-color: rgb(205, 127, 50, 0.4);
+}
+
+table img {
+    height: 100px;
+    width: auto;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    height: 30px;
+    background-color: rgba(0, 128, 0, 0.4);
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) {
+    width: 50px;
+}
+
 /* ---- FOOTER ---- */
 footer {
     background-color: #000e00;
