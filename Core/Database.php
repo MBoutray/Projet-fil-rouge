@@ -28,7 +28,14 @@ class Database {
         }
     }
 
-    protected function query($statement, $one = false) {
+    /**
+     * Method to receive data from the database
+     *
+     * @param string $statement
+     * @param boolean $one
+     * @return array
+     */
+    protected function query($statement, $one = false) : array {
         $query = $this->pdo->query($statement);
 
         if($one){
@@ -38,11 +45,23 @@ class Database {
         }
     }
 
+    /**
+     * Method to send data to the database
+     *
+     * @param string $statement
+     * @param array $data
+     * @return bool
+     */
     protected function prepare($statement, $data = array()) {
         $prepare = $this->pdo->prepare($statement);
         return $prepare->execute($data);
     }
 
+    /**
+     * Method to get the id of the last data inserted in the database
+     *
+     * @return int
+     */
     public function getLastInsertId() {
         return $this->pdo->lastInsertId();
     }
