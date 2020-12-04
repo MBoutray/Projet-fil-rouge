@@ -1,6 +1,4 @@
-                </div> <?php //main-wrapper ?>
-            </main>
-        </div> <?php //content-container ?>
+        </div> <?php //content-container ?>    
         <footer>
             <nav>
                 <ul>
@@ -16,10 +14,9 @@
     </div> <?php //page-container ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <?php
-    foreach ($js as $fileName) {
-        echo "<script src='./js/$fileName'></script>";
-    }
+        foreach ($js as $script) {
+            echo "<script src='./js/$script'></script>";
+        }
     ?>
 </body>
-
 </html>

@@ -5,11 +5,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && array_key_exists("action", $_POST)) 
             break;
         case 'disconnect':
             break;
-        case 'signup':
+        case 'register':
             break;
     }
 } else if (array_key_exists("page", $_GET)) {
     switch ($_GET["page"]) {
+        case 'connection':
+            include('../App/View/connectionView.php');
+            break;
+        case 'registration':
+            include('../App/View/registrationView.php');
+            break;
         case 'home':
                 
             break;
