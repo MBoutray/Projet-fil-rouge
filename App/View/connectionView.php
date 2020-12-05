@@ -23,7 +23,7 @@ include("./include/header.php");
             <input type="password" name="password" id="password-input" placeholder="Mot de passe">
             <label for="password-input" id="password-error" class="error-label"></label>
         </div>
-        <button type="submit" name="action" value="connect">Connexion</button>
+        <button class="button-primary" type="submit" name="action" value="connect">Connexion</button>
     </form>
 </main>
         
