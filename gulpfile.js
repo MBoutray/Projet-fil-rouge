@@ -3,9 +3,9 @@ const gulpSass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 
 function sass() {
-    return src('./public/sass/import.scss')
+    return src('./public/sass/main.scss')
     .pipe(gulpSass())
-    .pipe(dest('./public/css/'))
+    .pipe(dest('./public/css/style.css'))
     .pipe(browserSync.stream());
 }
 

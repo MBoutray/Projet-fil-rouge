@@ -1,0 +1,18 @@
+//Media query mixin
+@mixin media($breakpoint) {
+    $raw-query: map-get($map: $breakpoints, $key: $breakpoint);
+
+    @if $raw-query {
+        $query: if(
+            type-of($raw-query) == 'string',
+            unquote($raw-query),
+            inspect($raw-query)
+        );
+
+        @media #{$query} {
+            @content;
+        }
+    } @else {
+        @error 'Pas de breakpoint reconnu';
+    }
+}
