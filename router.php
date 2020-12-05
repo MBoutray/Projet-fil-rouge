@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && array_key_exists("action", $_POST)) 
             break;
         case 'register':
             break;
+        case 'new-poll':
+            break;
     }
 } else if (array_key_exists("page", $_GET)) {
     switch ($_GET["page"]) {
