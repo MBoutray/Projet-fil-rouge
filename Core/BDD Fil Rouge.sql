@@ -12,6 +12,7 @@ CREATE TABLE `poll` (
   `poll_id` int(30) PRIMARY KEY AUTO_INCREMENT,
   `creator_id` int(30) NOT NULL,
   `title` varchar(500) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `END_DATE` datetime NOT NULL,
   `CREATION_DATE` datetime NOT NULL DEFAULT NOW()
 );
@@ -36,7 +37,14 @@ CREATE TABLE `user_answer` (
   `poll_answer_id` int(30) NOT NULL
 );
 
+CREATE TABLE `category` (
+  `category_id` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(100) UNIQUE NOT NULL
+);
+
 ALTER TABLE `poll` ADD FOREIGN KEY (`creator_id`) REFERENCES `user` (`user_id`);
+
+ALTER TABLE `poll` ADD FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
 
 ALTER TABLE `poll_answer` ADD FOREIGN KEY (`poll_id`) REFERENCES `poll` (`poll_id`);
 
