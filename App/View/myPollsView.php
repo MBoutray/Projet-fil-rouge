@@ -1,5 +1,6 @@
 <?php
 use App\Controller\UserController;
+use App\Model\PollModel;
 // UserController::Redirect(true); //TODO retirer le commentaire
 
 $title = "Sondages";
@@ -30,7 +31,14 @@ include("./include/header.php");
             </div>
             <div class="input-group">
                 <label for="category-input" class="input-label">Catégorie</label>
-                <input type="text" name="category" id="category-input">
+                <select name="category" id="category-input">
+                    <?php
+                        $model = new PollModel();
+                        $categories = $model->GetCategories();
+                        foreach ($categories as $category) {?>
+                            <option value='<?= $category->category_id; ?>'><?= $category->name; ?></option>
+                    <?php } ?>
+                </select>
                 <label for="category-input" id="category-error" class="error-label"></label>
             </div>
             <section id="answer-container">
