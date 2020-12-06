@@ -10,7 +10,7 @@ $(document).ready(function () {
     // })
     function ValidateInput(inputName, dataContent) {
         let wasValid = true;
-        $.post("./helpers/validate.php", { input: inputName, data: dataContent }, function(data) {
+        $.post("./helpers/validatePoll.php", { input: inputName, data: dataContent }, function(data) {
             if (data.result == "error") {
                 $("#" + inputName + "-error").html(data.errorMessage);
                 wasValid = false;

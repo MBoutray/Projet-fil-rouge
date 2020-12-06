@@ -1,4 +1,5 @@
 <?php
+use App\Model\PollModel;
 require "../../Autoloader.php";
 Autoloader::register();
 
@@ -24,7 +25,12 @@ switch ($input) {
         }
         break;
     case 'category':
-        # code...
+        $model = new PollModel();
+        $categories = $model->GetCategories();
+
+        if (condition) {
+            # code...
+        }
         break;
     case 'answer':
         # code...
