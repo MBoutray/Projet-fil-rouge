@@ -1,6 +1,5 @@
 <?php
 use App\Controller\UserController;
-//UserController::Disconnect(); //TODO remove after
 UserController::Redirect(false);
 
 $title = "Connexion";
