@@ -93,4 +93,8 @@ class PollModel extends Database {
         //Create the new user answer
         $this->prepare("INSERT INTO user_answer(entry_id, poll_answer_id) VALUES(:entryID, :pollAnswer);", array(':entryID' => $lastID, ':poll_answer_id' => $answerID));
     }
+
+    public function GetCategories() {
+        return $this->query("SELECT * FROM category;");
+    }
 }
