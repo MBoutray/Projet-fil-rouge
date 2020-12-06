@@ -22,7 +22,7 @@ class Database {
             $this->dbname = $dbConfig["dbname"];
             $this->dbuser = $dbConfig["dbuser"];
             $this->dbpass = $dbConfig["dbpass"];
-            $this->pdo = new \PDO("mysql:host=$this->host;dbname=$this->dbname", $this->dbuser, $this->dbpass);
+            $this->pdo = new \PDO("mysql:host=$this->host;dbname=$this->dbname;charset=utf8", $this->dbuser, $this->dbpass);
         } catch (\PDOException $e) {
             return $e->getMessage();
         }
