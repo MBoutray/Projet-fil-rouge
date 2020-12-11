@@ -3,7 +3,7 @@ use App\Controller\UserController;
 UserController::Redirect(false);
 
 $title = "Inscription";
-$js = array("main.js");
+$js = array("main.js", 'helpers.js', 'registration.js');
 
 include("./include/head.php");
 include("./include/header.php");
