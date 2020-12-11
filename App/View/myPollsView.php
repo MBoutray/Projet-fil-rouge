@@ -4,7 +4,7 @@ use App\Model\PollModel;
 // UserController::Redirect(true); //TODO retirer le commentaire
 
 $title = "Sondages";
-$js = array("main.js", "pollCreation.js");
+$js = array("main.js", 'helpers.js', "pollCreation.js");
 
 include("./include/head.php");
 include("./include/header.php");
