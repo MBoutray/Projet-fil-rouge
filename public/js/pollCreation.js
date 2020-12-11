@@ -8,7 +8,7 @@ $(document).ready(function () {
         // $inputName = RemoveStringEnding($(this).attr('id'), "-input");
         $inputName = $(this).attr('name');
         $inputID = $(this).attr('id');
-        ValidateInput($inputName, $inputValue, $inputID);
+        ValidateInput($inputName, $inputValue, $inputID, "validatePoll.php");
     });
 
     //Poll submitting

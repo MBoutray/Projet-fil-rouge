@@ -1,6 +1,6 @@
-function ValidateInput(inputName, dataContent, inputID) {
+function ValidateInput(inputName, dataContent, inputID, fileName) {
     $.ajax({
-        url: "./helpers/validatePoll.php",
+        url: "./helpers/" + fileName,
         method: "post",
         dataType: 'json',
         data: { input: inputName, data: dataContent },
