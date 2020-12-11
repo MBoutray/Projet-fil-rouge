@@ -28,12 +28,19 @@ switch ($input) {
         $model = new PollModel();
         $categories = $model->GetCategories();
 
-        if (condition) {
-            # code...
+        if ($data === "" || array_search($data, array_column($categories, 'category_id')) === false) {
+            $returnedData = array('result' => 'error', 'errorMessage' => 'Veuillez entrer une categorie correcte.');
         }
         break;
-    case 'answer':
-        # code...
+    case 'answers[]':
+        if ($data == "") {
+            $returnedData = array('result' => 'error', 'errorMessage' => "Veuillez entrer l'intitulé de la réponse.");
+        }
+        break;
+    case 'is-correct':
+        if (!isset($data)) {
+            $returnedData = array('result' => 'error', 'errorMessage' => "Veuillez sélectionner une réponse correcte.");
+        }
         break;
 }
 

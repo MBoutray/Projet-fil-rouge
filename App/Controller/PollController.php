@@ -10,13 +10,9 @@ class PollController {
     }
 
     //Créer un sondage
-    public function CreatePoll()
+    public function CreatePoll($answers)
     {
-        if (!empty($_POST['poll-question']) && !empty($_POST['deadline']) && !empty($_POST['poll-question']) && !empty($_POST['poll-question']) && !empty($_POST['answers']) && !empty($_POST['is-correct'])) {
-            
-        } else {
-            //TODO add error for 
-        }
+        $this->model->CreatePoll($_SESSION['id'], $_POST['poll-question'], $_POST['category'], $_POST['deadline'], $answers);
     }
     //Répondre à un sondage
     //Afficher une preview

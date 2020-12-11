@@ -16,9 +16,10 @@ include("./include/header.php");
         <button class="tab-links" id="new-poll-tab">Nouveau sondage</button>
         <button class="tab-links" id="my-polls-tab">Mes sondages</button>
     </nav>
+    <!-- Create poll section -->
     <section class="tab-content" id="new-poll-content">
         <h2>Créer un sondage</h2>
-        <form action="index.php" method="post">
+        <form action="index.php" method="post" id="poll-creation-form">
             <div class="input-group">
                 <label for="poll-question-input" class="input-label">Question du sondage</label>
                 <input type="text" name="poll-question" id="poll-question-input" placeholder="Question du sondage">
@@ -42,6 +43,7 @@ include("./include/header.php");
                 <label for="category-input" id="category-error" class="error-label"></label>
             </div>
             <section id="answer-container">
+                <div id="is-correct-error" class="error-label"></div>
            <!-- <article class="answer">
                     <div class="input-group">
                         <label for="answer-x-input" class="input-label">Réponse du sondage</label>
@@ -64,7 +66,7 @@ include("./include/header.php");
                     <div class="input-group">
                         <label for="is-correct-1-input" class="input-label">Est la bonne réponse</label>
                         <input type="radio" name="is-correct" id="is-correct-1-input" value="1">
-                        <label for="is-correct-1-input" id="is-correct-1-error" class="error-label"></label>
+                        <!-- <label for="is-correct-1-input" id="is-correct-1-error" class="error-label"></label> -->
                     </div>
                     <button class="remove-button fas fa-times" id="remove-answer-1"></button>
                 </article>
@@ -77,7 +79,7 @@ include("./include/header.php");
                     <div class="input-group">
                         <label for="is-correct-2-input" class="input-label">Est la bonne réponse</label>
                         <input type="radio" name="is-correct" id="is-correct-2-input" value="2">
-                        <label for="is-correct-2-input" id="is-correct-2-error" class="error-label"></label>
+                        <!-- <label for="is-correct-2-input" id="is-correct-2-error" class="error-label"></label> -->
                     </div>
                     <button class="remove-button fas fa-times" id="remove-answer-2"></button>
                 </article>
@@ -85,8 +87,11 @@ include("./include/header.php");
             <button class="button-secondary fas fa-plus" id="new-answer"></button>
 
             <button class="button-primary" type="submit" name="action" value="new-poll">Créer un sondage</button>
+            <div id="creation-success-label" class="success-label"></div>
         </form>
     </section>
+    
+    <!-- My polls section -->
     <section class="tab-content" id="my-polls-content">
         <h2>Mes sondages</h2>
         <section id="my-polls-container">

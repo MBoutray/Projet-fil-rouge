@@ -1,35 +1,89 @@
 $(document).ready(function () {
-    // $("#poll-question-input").on('input', function () {
-    //     $.ajax({
-    //         url: './helpers/pollCreation.php',
-    //         method: 'post',
-    //         data: { input: 'question', data: $(this).val() },
-    //         dataType: 'html',
-    //         success:
-    //     })
-    // })
-    function ValidateInput(inputName, dataContent) {
-        let wasValid = true;
-        $.post("./helpers/validatePoll.php", { input: inputName, data: dataContent }, function(data) {
-            if (data.result == "error") {
-                $("#" + inputName + "-error").html(data.errorMessage);
-                wasValid = false;
+    //Initiate the first radio input as checked
+    $("input:radio:first").prop('checked', true);   
+
+    function ValidateInput(inputName, dataContent, inputID) {
+        $.ajax({
+            url: "./helpers/validatePoll.php",
+            method: "post",
+            dataType: 'json',
+            data: { input: inputName, data: dataContent },
+            success: function(data){
+                $("#" + RemoveStringEnding(inputID, "-input") + "-error").html(data.result == "error" ? data.errorMessage : '');
             }
-        }, 'json');
-        return wasValid;
+        });
     }
+
+    function AreAllTrue(booleanArray) {
+        booleanArray.forEach(element => { if (!element)  return false; });
+        return true;
+    }
+
+    function RemoveStringEnding(stringToTruncate, lineEndingToRemove) {
+        return stringToTruncate.substring(0, stringToTruncate.length - lineEndingToRemove.length);
+    }
+
+    //Ajax on the fly validation
+    $("input[id$='-input']").on('blur', function() {
+        $inputValue = $(this).val();
+        // $inputName = RemoveStringEnding($(this).attr('id'), "-input");
+        $inputName = $(this).attr('name');
+        $inputID = $(this).attr('id');
+        ValidateInput($inputName, $inputValue, $inputID);
+    });
 
     //Poll submitting
     $("form").submit(function (e) {
         e.preventDefault();
 
-        let question = $("#poll-question-input").val();
-        let deadline = $("#deadline-input").val();
-        let category = $("#category-input").val();
-        let answers = $("[name^='answers']").map(function() { return $(this).val(); });
-        let isCorrect = $("#is-correct").val();
+        //Get all the input values
+        $question = $("#poll-question-input").val();
+        $deadline = $("#deadline-input").val();
+        $category = $("#category-input").val();
+        answers = new Array();
+        $("[name^='answers']").each((i, answer) => {  
+            answers.push([answer.value, answer.id.replace('-input', '')]);
+        });
+        $isCorrect = $("input:radio:checked").val();
 
-        // $valid = ValidateInput("poll-question", question);
-        $valid = ValidateInput("deadline", deadline);
+        // -- Verify all values are correct --
+        $AreValidInputValues = [];
+        //Question
+        $AreValidInputValues.push($question != '');
+        //Deadline
+        $dateDifference = new Date($deadline) - Date.now();
+        $AreValidInputValues.push($dateDifference > 0);
+        //Answers
+        answers.forEach((elem) => {
+            $AreValidInputValues.push(elem[0] != null && elem[0] != '');
+        });
+
+        //Creation of poll
+        $areAllTrue = AreAllTrue($AreValidInputValues);
+        if($areAllTrue) {
+            let formData = new FormData(document.getElementById('poll-creation-form'));
+            formData.append('action', 'new-poll');
+
+            //get the answers in the right formatting
+            let questions = [];
+            answers.forEach((element) => {
+                let questionTemp = { title: element[0] };
+                questionTemp.isCorrect = ($isCorrect == String(element[1]).substring(String(element[1]).length - 1));
+
+                questions.push(questionTemp);
+            });
+            formData.append('answers', JSON.stringify(questions));
+
+            $.ajax({
+                url: "./index.php",
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function() {
+                    $('#creation-success-label').html('Sondage créé !');
+                }
+            });
+        }
     })
 });

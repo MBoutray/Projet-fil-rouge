@@ -1,4 +1,6 @@
 <?php
+use App\Controller\PollController;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && array_key_exists("action", $_POST)) {
     switch ($_POST['action']) {
         case 'connect':
@@ -8,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && array_key_exists("action", $_POST)) 
         case 'register':
             break;
         case 'new-poll':
+            $controller = new PollController();
+            $controller->CreatePoll(json_decode($_POST['answers']));
             break;
     }
 } else if (array_key_exists("page", $_GET)) {
