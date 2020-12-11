@@ -23,6 +23,11 @@ include("./include/header.php");
             <label for="last-name-input" id="last-name-error" class="error-label"></label>
         </div>
         <div class="input-group">
+            <label for="username-input" class="input-label">Pseudo</label>
+            <input type="text" name="username" id="username-input" placeholder="Pseudo">
+            <label for="username-input" id="username-error" class="error-label"></label>
+        </div>
+        <div class="input-group">
             <label for="email-input" class="input-label">Email <span class="required"><sup>*</sup></span></label>
             <input type="email" name="email" id="email-input" placeholder="Email">
             <label for="email-input" id="email-error" class="error-label"></label>
